@@ -1,24 +1,21 @@
+import { Router } from '@reach/router';
+
 import logo from './logo.svg';
 import './App.css';
 
+import Login from './pages/login';
+import Edit from './pages/edit';
+import Details from './pages/details';
+import Dashboard from './pages/dashboard';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          ciao bob
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Login path="/" />
+      <Edit path="/edit" />
+      <Dashboard path="/dashboard" />
+      <Details path="/details" />
+    </Router>
   );
 }
 
