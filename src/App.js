@@ -1,8 +1,5 @@
 import { Router } from '@reach/router';
 
-import logo from './logo.svg';
-import './App.css';
-
 import Login from './pages/login';
 import Edit from './pages/edit';
 import Details from './pages/details';
