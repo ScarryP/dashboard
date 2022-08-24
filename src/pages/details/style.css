@@ -1,0 +1,66 @@
+/*titolo*/
+h2{
+    color: #ffffff;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 40px;
+    margin-left: 10%;
+    margin-top: 5%;    
+}
+
+/*freccia titolo*/
+.arrow{
+    color: #4d8b31;
+    margin-left: 20px;
+    font-size: 40px;
+}
+
+/*card bianca*/
+.card{
+    border-radius: 20px 20px 20px 20px;
+    background-color: #ffffff;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+/*come scheda su striscia arancione*/
+.cardTitle{
+    font: 24px 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    color: #1e212b;
+    padding: 20px 20px ;
+    background-color: #ff8427;
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.rowCard{
+    display: grid;
+    grid-template-columns: auto 60px;  
+}
+
+.editPen{
+    color: #1e212b;
+    padding: 20px 0px;
+    font-size: 31px;
+    cursor: pointer;
+    width: 100%;
+    background-color: #ff8427;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.editPen:hover{
+    color: #ffffff;
+}
+
+.statusCircle{
+    margin-left: 10px;
+    color: red;
+}
+
+.cardInfo{
+    padding: 20px 20px;
+    font: 18px 'Helvetica Neue', sans-serif;
+}
