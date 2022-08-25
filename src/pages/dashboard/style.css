@@ -1,49 +1,59 @@
 /*dichiarazione font helvetica neue*/
 @font-face {
-    font-family: 'Helvetica Neue';
-    font-weight: bolder;
-    letter-spacing: -1px;
-    line-height: 1;
-    src: url(https://fonts.gstatic.com/l/font?kit=jAnfgHBgCsv4eNLTaMECf8DQsNS_exA&skey=4ad46dd97873f7d7&v=v16) format('woff2');
+  font-family: "Helvetica Neue";
+  font-weight: bolder;
+  letter-spacing: -1px;
+  line-height: 1;
+  src: url(https://fonts.gstatic.com/l/font?kit=jAnfgHBgCsv4eNLTaMECf8DQsNS_exA&skey=4ad46dd97873f7d7&v=v16)
+    format("woff2");
 }
 
 /*colore sfondo*/
 body {
-    background-color: #1e212b;
+  background-color: #1e212b;
 }
 
 /*titolo telecamere*/
 h1 {
-    font-family: 'Helvetica Neue', sans-serif;
-    text-align: center;
-    font-size: 50px;
-    color: #ffffff;
-    border-bottom: 2.5px double #ffffff;
-    width: 97%;
-    margin-left: auto;
-    margin-right: auto;
-    
+  font-family: "Helvetica Neue", sans-serif;
+  text-align: center;
+  font-size: 50px;
+  color: #ffffff;
+  border-bottom: 2.5px double #ffffff;
+  width: 97%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*icona play button*/
-.play{
-    color: #4d8b31;
-    margin-left: 10px;
-    font-size: 40px;
+.play {
+  color: #4d8b31;
+  margin-left: 10px;
+  font-size: 40px;
 }
 
 /*tabella*/
-.table{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-bottom: 70px;
-    
+.table {
+  width: 80%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 70px auto;
 }
 
-.tableCell{
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+/* stile particolare da applicare solo quando lo schermo è più piccolo di tot px */
+@media (max-width: 1024px) {
+  .table {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .table {
+    grid-template-columns: 1fr;
+  }
 }
 
-
+.tableCell {
+  width: 70%;
+  margin: auto;
+}
