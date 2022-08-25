@@ -1,9 +1,9 @@
-import { Router } from '@reach/router';
+import { Router } from "@reach/router";
 
-import Login from './pages/login';
-import Edit from './pages/edit';
-import Details from './pages/details';
-import Dashboard from './pages/dashboard';
+import Login from "./pages/login";
+import Edit from "./pages/edit";
+import Details from "./pages/details";
+import Dashboard from "./pages/dashboard";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Login path="/" />
       <Edit path="/edit" />
       <Dashboard path="/dashboard" />
-      <Details path="/details" />
+      <Details path="/details/:boardSlug" />
     </Router>
   );
 }

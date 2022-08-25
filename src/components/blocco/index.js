@@ -28,7 +28,7 @@ const Blocco = ({ board }) => {
           <FontAwesomeIcon icon={faVideo} className="videocamera" />
         </div>
         <div>
-          <a href="details">
+          <a href={`details/${board.slug}`}>
             <FontAwesomeIcon icon={faPlus} className="plus" />
           </a>
         </div>
@@ -38,7 +38,7 @@ const Blocco = ({ board }) => {
 };
 
 Blocco.propTypes = {
-    board: PropTypes.object
+  board: PropTypes.object,
 };
 
 export default Blocco;
