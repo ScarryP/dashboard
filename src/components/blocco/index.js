@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,16 +8,14 @@ import {
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Blocco = () => {
+const Blocco = ({ board }) => {
   return (
     <div className="blocco">
       <div className="row">
         <div>
-          <p>
-            Name <br />
-            IP <br />
-            Status <br />
-          </p>
+          <div className="text">Name: {board.name} </div>
+          <div className="text">IP: {board.ipAddress}</div>
+          <div className="text">Status </div>
         </div>
         <div>
           <a href="edit">
@@ -35,6 +35,10 @@ const Blocco = () => {
       </div>
     </div>
   );
+};
+
+Blocco.propTypes = {
+    board: PropTypes.object
 };
 
 export default Blocco;

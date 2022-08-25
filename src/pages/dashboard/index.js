@@ -1,32 +1,75 @@
-import './style.css';
-import Blocco from '../../components/blocco';
+import { useState, useEffect } from "react";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlay } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
+
+import "./style.css";
+import Blocco from "../../components/blocco";
+
+const query = `
+{
+    dashboardCollection{
+      items{
+        boardsCollection{
+          items{
+            slug
+            name
+            ipAddress
+          }
+        }
+      }
+    }
+  }
+`;
 
 const Dashboard = () => {
-    return (
-        <div>
-            <h1>Telecamere
-                <FontAwesomeIcon icon={faCirclePlay} className="play" />
-            </h1>
+  //faccio cose per recuperare i dati delle varie schede e metterli in un array 'boards'
+  const [boards, setBoards] = useState(null);
+  useEffect(() => {
+    window
+      .fetch(
+        `https://graphql.contentful.com/content/v1/spaces/${process.env.REACT_APP_CONTENTFUL_SPACE_ID}/`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${process.env.REACT_APP_CONTENTFUL_ACCESS_TOKEN}`,
+          },
+          body: JSON.stringify({ query }),
+        }
+      )
+      .then((response) => response.json())
+      .then(({ data, errors }) => {
+        if (errors) {
+          console.error(errors);
+        }
+        setBoards(data.dashboardCollection.items[0].boardsCollection.items);
+      });
+  }, []);
 
-            <div className='table'>
+  return (
+    <div>
+      <h1>
+        Telecamere
+        <FontAwesomeIcon icon={faCirclePlay} className="play" />
+      </h1>
 
-                <div className='tableCell'><Blocco /></div>
-                <div className='tableCell'><Blocco /></div>
-                <div className='tableCell'><Blocco /></div>
-                <div className='tableCell'><Blocco /></div>
-                <div className='tableCell'><Blocco /></div>
-                <div className='tableCell'><Blocco /></div>
-                <div className='tableCell'><Blocco /></div>
-                <div className='tableCell'><Blocco /></div>
-
+      {/* Controllo se ho già recuperato i dati */}
+      {boards ? (
+        <div className="table">
+          {/* per ogni scheda dell'array disegno un Blocco */}
+          {boards.map((board) => (
+            <div className="tableCell" key={board.slug}>
+              <Blocco board={board} />
             </div>
-
-
+          ))}
         </div>
-    );
-}
+      ) : (
+        // Se non ho dati scrivo che li sto caricando
+        <h2>Caricandoooooo....</h2>
+      )}
+    </div>
+  );
+};
 
 export default Dashboard;
