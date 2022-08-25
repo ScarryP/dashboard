@@ -33,11 +33,17 @@ h1 {
 }
 
 /*tabella*/
-table{
-    width: 80%;
+.table{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 70px;
+    
+}
+
+.tableCell{
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 70px;
-    margin-top: 70px;
 }
+
 

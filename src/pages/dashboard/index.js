@@ -11,26 +11,19 @@ const Dashboard = () => {
                 <FontAwesomeIcon icon={faCirclePlay} className="play" />
             </h1>
 
-            <table>
-                <tr>
-                    <td><Blocco /></td>
-                    <td><Blocco /></td>
-                </tr>
-                <tr>
-                    <td><Blocco /></td>
-                    <td><Blocco /></td>
-                </tr>
-                <tr>
-                    <td><Blocco /></td>
-                    <td><Blocco /></td>
-                </tr>
-                <tr>
-                    <td><Blocco /></td>
-                    <td><Blocco /></td>
-                </tr>
+            <div className='table'>
 
-            </table>
-            
+                <div className='tableCell'><Blocco /></div>
+                <div className='tableCell'><Blocco /></div>
+                <div className='tableCell'><Blocco /></div>
+                <div className='tableCell'><Blocco /></div>
+                <div className='tableCell'><Blocco /></div>
+                <div className='tableCell'><Blocco /></div>
+                <div className='tableCell'><Blocco /></div>
+                <div className='tableCell'><Blocco /></div>
+
+            </div>
+
 
         </div>
     );
