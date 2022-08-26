@@ -5,6 +5,7 @@ import {
   faChevronDown,
   faPenToSquare,
   faCircle,
+  faChevronLeft
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./style.css";
@@ -75,7 +76,7 @@ const Details = ({ boardSlug }) => {
             <FontAwesomeIcon icon={faCircle} className="statusCircle" />
           </div>
           <div>
-            <a href="edit">
+            <a href="/edit">
               <FontAwesomeIcon icon={faPenToSquare} className="editPen" />
             </a>
           </div>
@@ -107,6 +108,9 @@ const Details = ({ boardSlug }) => {
                 {board.ext2Name && <div>{board.ext2Name} [ext2]: </div>}
               </>
             )}
+            <a href="/dashboard">
+            <FontAwesomeIcon icon={faChevronLeft} className="backArrow" />
+            </a>
           </div>
         </div>
       </div>

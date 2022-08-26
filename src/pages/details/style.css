@@ -69,3 +69,14 @@ h2 {
   padding: 20px 20px;
   font: 18px "Helvetica Neue", sans-serif;
 }
+
+.backArrow {
+  color: #1e212b;
+  font-size: 31px;
+  cursor: pointer;
+  margin-top: 10%;
+}
+
+.backArrow:hover{
+  color: #ff8427;
+}

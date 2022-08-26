@@ -1,0 +1,59 @@
+.rightToBracket {
+    margin-left: 20px;
+    color: #4d8b31;
+}
+
+.loginCard {
+    background-color: #4d8b31;
+    border: 5px solid #ddf8d2;
+    border-radius: 10px 10px 10px 10px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6%;
+    box-shadow: 10px 10px;
+}
+
+.password, .email {
+    color: #1e212b;
+    font-weight: bold;
+    font-family: "Helvetica Neue", sans-serif;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+.input {
+    padding: 6px;
+    border-radius: 5px 5px 5px 5px;
+    background-color: #ddf8d2;
+    width: 70%;
+    border: 2px solid #1e212b;
+    box-shadow: 3px 3px;
+}
+
+.joinButton {
+    width: 100%;
+    height: 30px;
+    border: 2px solid #1e212b;
+    background-color: #ff8427;
+    border-radius: 17px;
+    padding-left: 7px;
+    color: #1e212b;
+    font-weight: bold;
+    box-shadow: 3px 3px;
+    transition: all 0.1s ease 0s;
+    cursor: pointer;
+}
+
+.divButton {
+    width: 68%;
+    padding: 40px;
+}
+
+.joinButton:hover{
+    border: 2px solid #1e212b;
+    background-color: #85491b;
+    box-shadow: 3px;
+    color: #1e212b;
+    transform: translateY(5px); 
+}

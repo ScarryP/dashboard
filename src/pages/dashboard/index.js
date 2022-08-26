@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRotateRight, faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
 import "./style.css";
 import Blocco from "../../components/blocco";
@@ -66,7 +66,9 @@ const Dashboard = () => {
         </div>
       ) : (
         // Se non ho dati scrivo che li sto caricando
-        <h2>Caricandoooooo....</h2>
+        <h2>
+            Caricamento in corso ...
+        </h2>
       )}
     </div>
   );
