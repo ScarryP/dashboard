@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Connector } from "mqtt-react-hooks";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRotateRight, faCirclePlay } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
 import "./style.css";
 import Blocco from "../../components/blocco";
