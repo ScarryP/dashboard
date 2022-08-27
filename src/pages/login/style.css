@@ -13,22 +13,37 @@
     margin-top: 6%;
     box-shadow: 10px 10px;
 }
+@media (max-width: 768px) {
+    .loginCard {
+        width: 80%;
+    }
+}
+@media (max-width: 1024px){
+    .loginCard {
+        width: 60%;
+    }
+}
 
-.password, .email {
-    color: #1e212b;
-    font-weight: bold;
-    font-family: "Helvetica Neue", sans-serif;
+.inputDiv {
     margin-top: 30px;
-    margin-left: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 }
 
 .input {
     padding: 6px;
     border-radius: 5px 5px 5px 5px;
     background-color: #ddf8d2;
-    width: 70%;
+    width: 100%;
     border: 2px solid #1e212b;
     box-shadow: 3px 3px;
+    box-sizing: border-box;
+}
+
+.input:focus {
+    background-color: #1e212b;
+    color: #ffffff;
 }
 
 .joinButton {
@@ -46,14 +61,24 @@
 }
 
 .divButton {
-    width: 68%;
+    width: 60%;
     padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.joinButton:hover{
+.joinButton:hover {
     border: 2px solid #1e212b;
-    background-color: #85491b;
+    background-color: #ffc800;
     box-shadow: 3px;
     color: #1e212b;
     transform: translateY(5px); 
+}
+
+.label {
+    padding: 4px;
+    color: #1e212b;
+    font-weight: bold;
+    font-family: "Helvetica Neue", sans-serif;
+    
 }
