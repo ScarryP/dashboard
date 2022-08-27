@@ -24,7 +24,7 @@ const query = `
   }
 `;
 
-const Dashboard = () => {
+const Dashboard = ({ userMQTT }) => {
   //faccio cose per recuperare i dati delle varie schede e metterli in un array 'boards'
   const [boards, setBoards] = useState(null);
   useEffect(() => {
@@ -51,8 +51,12 @@ const Dashboard = () => {
 
   return (
     <Connector
-      brokerUrl="ws://localhost:9001"
-      options={{ clientId: "dashboard" }}
+      brokerUrl={userMQTT.server}
+      options={{
+        clientId: "dashboard",
+        username: userMQTT.user,
+        password: userMQTT.pwd,
+      }}
     >
       <div>
         <h1>

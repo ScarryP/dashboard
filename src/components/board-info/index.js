@@ -55,7 +55,7 @@ const BoardInfo = ({ board, boardSlug }) => {
       <br />
 
       {fields.map((field) => (
-        <>
+        <div key={field}>
           {board[`${field}Name`] && (
             <div>
               {board[`${field}Name`]} [{field}]:{" "}
@@ -68,7 +68,7 @@ const BoardInfo = ({ board, boardSlug }) => {
             </div>
           )}
           {["v7", "i1", "t4"].includes(field) && <br />}
-        </>
+        </div>
       ))}
     </>
   );

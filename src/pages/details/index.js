@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import { useParams } from "react-router-dom";
+
 import { Connector } from "mqtt-react-hooks";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,7 +15,8 @@ import {
 import "./style.css";
 import BoardInfo from "../../components/board-info";
 
-const Details = ({ boardSlug }) => {
+const Details = ({ userMQTT }) => {
+  let { boardSlug } = useParams();
   //faccio cose per recuperare i dati della scheda
   const [board, setBoard] = useState(null);
   useEffect(() => {
@@ -67,8 +70,12 @@ const Details = ({ boardSlug }) => {
 
   return (
     <Connector
-      brokerUrl="ws://localhost:9001"
-      options={{ clientId: "dashboard" }}
+      brokerUrl={userMQTT.server}
+      options={{
+        clientId: "dashboard",
+        username: userMQTT.user,
+        password: userMQTT.pwd,
+      }}
     >
       <div>
         <h2>
