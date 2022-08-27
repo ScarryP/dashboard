@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 
+import { useMqttState } from "mqtt-react-hooks";
+
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -9,13 +11,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Blocco = ({ board }) => {
+  const { connectionStatus } = useMqttState();
   return (
     <div className="blocco">
       <div className="row">
         <div>
           <div className="text">Name: {board.name} </div>
           <div className="text">IP: {board.ipAddress}</div>
-          <div className="text">Status </div>
+          <div className="text">Status: {connectionStatus}</div>
         </div>
         <div>
           <a href="edit">

@@ -1,3 +1,5 @@
+import "./FixImport";
+
 import { Router } from "@reach/router";
 
 import Login from "./pages/login";

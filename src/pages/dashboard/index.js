@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import { Connector } from "mqtt-react-hooks";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRotateRight, faCirclePlay } from "@fortawesome/free-solid-svg-icons";
 
@@ -48,29 +50,32 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div>
-      <h1>
-        Telecamere
-        <FontAwesomeIcon icon={faCirclePlay} className="play" />
-      </h1>
+    <Connector
+      brokerUrl="ws://localhost:9001"
+      options={{ clientId: "dashboard" }}
+    >
+      <div>
+        <h1>
+          Telecamere
+          <FontAwesomeIcon icon={faCirclePlay} className="play" />
+        </h1>
 
-      {/* Controllo se ho già recuperato i dati */}
-      {boards ? (
-        <div className="table">
-          {/* per ogni scheda dell'array disegno un Blocco */}
-          {boards.map((board) => (
-            <div className="tableCell" key={board.slug}>
-              <Blocco board={board} />
-            </div>
-          ))}
-        </div>
-      ) : (
-        // Se non ho dati scrivo che li sto caricando
-        <h2>
-            Caricamento in corso ...
-        </h2>
-      )}
-    </div>
+        {/* Controllo se ho già recuperato i dati */}
+        {boards ? (
+          <div className="table">
+            {/* per ogni scheda dell'array disegno un Blocco */}
+            {boards.map((board) => (
+              <div className="tableCell" key={board.slug}>
+                <Blocco board={board} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          // Se non ho dati scrivo che li sto caricando
+          <h2>Caricamento in corso ...</h2>
+        )}
+      </div>
+    </Connector>
   );
 };
 
