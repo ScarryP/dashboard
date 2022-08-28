@@ -18,7 +18,7 @@ const Blocco = ({ board }) => {
         <div>
           <div className="text">Name: {board.name} </div>
           <div className="text">IP: {board.ipAddress}</div>
-          <div className="text">Status: {connectionStatus}</div>
+          <div className="text">Server Status: {connectionStatus}</div>
         </div>
         <div>
           <a href="edit">

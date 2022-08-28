@@ -58,13 +58,32 @@ const BoardInfo = ({ board, boardSlug }) => {
         <div key={field}>
           {board[`${field}Name`] && (
             <div>
-              {board[`${field}Name`]} [{field}]:{" "}
+              {/* Nome parametro */}
+              {board[`${field}Name`]} [{field}]{" : "}
+              {/* Valore attuale */}
               {messages.map(
                 (message) =>
                   message &&
                   message.topic === `${boardSlug}/${field}` &&
-                  message.message
+                  (message.message || " ...")
               )}
+              {/* Unità di misura */}
+              {field.charAt(0) === "v" && "  V"}
+              {field.charAt(0) === "i" && "  A"}
+              {field.charAt(0) === "t" && "  °C"}
+              {/* Validazione */}
+              {message &&
+                (board[`${field}Min`] || board[`${field}Max`]) &&
+                ((parseFloat(message.message) > board[`${field}Max`] &&
+                  board[`${field}Max`]) ||
+                (parseFloat(message.message) < board[`${field}Min`] &&
+                  board[`${field}Min`]) ? (
+                  // messaggio di errore
+                  <div className="errore">Errore </div>
+                ) : (
+                  // messaggio di tutto bene
+                  <div className="tutto-bene">Tutto bene </div>
+                ))}
             </div>
           )}
           {["v7", "i1", "t4"].includes(field) && <br />}

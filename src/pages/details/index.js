@@ -27,13 +27,29 @@ const Details = ({ userMQTT }) => {
                 name
                 ipAddress
                 v0Name
+                v0Min
+                v0Max
                 v1Name
+                v1Min
+                v1Max
                 v2Name
+                v2Min
+                v2Max
                 v3Name
+                v3Min
+                v3Max
                 v4Name
+                v4Min
+                v4Max
                 v5Name
+                v5Min
+                v5Max
                 v6Name
+                v6Min
+                v6Max
                 v7Name
+                v7Min
+                v7Max
                 i0Name
                 i1Name
                 t1Name
@@ -95,13 +111,11 @@ const Details = ({ userMQTT }) => {
               </a>
             </div>
           </div>
-          <div className="rowCard">
             <div className="cardInfo">
               {board && <BoardInfo board={board} boardSlug={boardSlug} />}
               <a href="/dashboard">
                 <FontAwesomeIcon icon={faChevronLeft} className="backArrow" />
               </a>
-            </div>
           </div>
         </div>
       </div>
