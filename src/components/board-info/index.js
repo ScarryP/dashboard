@@ -2,6 +2,12 @@ import { useState, useEffect } from "react";
 
 import { useSubscription } from "mqtt-react-hooks";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTriangleExclamation,
+  faCircleCheck,
+} from "@fortawesome/free-solid-svg-icons";
+
 import "./style.css";
 
 const fields = [
@@ -57,34 +63,59 @@ const BoardInfo = ({ board, boardSlug }) => {
       {fields.map((field) => (
         <div key={field}>
           {board[`${field}Name`] && (
-            <div>
-              {/* Nome parametro */}
-              {board[`${field}Name`]} [{field}]{" : "}
-              {/* Valore attuale */}
-              {messages.map(
-                (message) =>
-                  message &&
-                  message.topic === `${boardSlug}/${field}` &&
-                  (message.message || " ...")
-              )}
-              {/* Unità di misura */}
-              {field.charAt(0) === "v" && "  V"}
-              {field.charAt(0) === "i" && "  A"}
-              {field.charAt(0) === "t" && "  °C"}
-              {/* Validazione */}
-              {message &&
-                (board[`${field}Min`] || board[`${field}Max`]) &&
-                ((parseFloat(message.message) > board[`${field}Max`] &&
-                  board[`${field}Max`]) ||
-                (parseFloat(message.message) < board[`${field}Min`] &&
-                  board[`${field}Min`]) ? (
-                  // messaggio di errore
-                  <div className="errore">Errore </div>
-                ) : (
-                  // messaggio di tutto bene
-                  <div className="tutto-bene">Tutto bene </div>
-                ))}
-            </div>
+            <>
+              <div className="iconBlock">
+                {/* Validazione */}
+                {messages.map(
+                  (message) =>
+                    message &&
+                    message.topic === `${boardSlug}/${field}` &&
+                    message.message &&
+                    (board[`${field}Min`] || board[`${field}Max`]) &&
+                    ((board[`${field}Max`] &&
+                      parseFloat(message.message) > board[`${field}Max`]) ||
+                    (board[`${field}Min`] &&
+                      parseFloat(message.message) < board[`${field}Min`]) ? (
+                      // messaggio di errore
+                      <FontAwesomeIcon
+                        icon={faTriangleExclamation}
+                        className="iconError"
+                        key={message.message}
+                      />
+                    ) : (
+                      // messaggio di tutto bene
+                      <FontAwesomeIcon
+                        icon={faCircleCheck}
+                        className="iconOk"
+                        key={message.message}
+                      />
+                    ))
+                )}
+              </div>
+              <div className="textBlock">
+                {/* Nome parametro */}
+                {`[${field}]  `}
+                {board[`${field}Name`]} {" : "}
+                {/* Valore attuale */}
+                {messages.map(
+                  (message) =>
+                    message &&
+                    message.topic === `${boardSlug}/${field}` && (
+                      <span key={message.message}>
+                        {message.message}
+                        {/* Unità di misura */}
+                        {message.message && (
+                          <>
+                            {field.charAt(0) === "v" && "  V"}
+                            {field.charAt(0) === "i" && "  A"}
+                            {field.charAt(0) === "t" && "  °C"}
+                          </>
+                        )}
+                      </span>
+                    )
+                )}
+              </div>
+            </>
           )}
           {["v7", "i1", "t4"].includes(field) && <br />}
         </div>
